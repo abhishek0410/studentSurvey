@@ -5,7 +5,7 @@ import StudentSurvey from "./components/Form";
 function App() {
   return (
     <div className="App">
-    <h1> To Do </h1>
+    <h1> Survey</h1>
     <StudentSurvey/>
     </div>
   );
