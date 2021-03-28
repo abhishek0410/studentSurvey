@@ -1,67 +1,61 @@
 import React,{Component} from "react";
+import "survey-react/survey.css";
+
+import * as Survey from "survey-react";
 import firebase from "../utils/firebase";
 var uuid = require("uuid");
 
-// export default function Form()
-// {
-//     const [title, setTitle] = useState("");
-//     const [title2, setTitle2] = useState("");
-//     const handleOnChange = (e) => {
-//         setTitle(e.target.value);
-//     };
-//     const handleOnChange2 = (e) => {
-//         setTitle2(e.target.value);
-//     };
+var studenName = "";
 
-//     const createTodo = () =>
-//     {
-//         const todoRef = firebase.database().ref("Todo"); //Call it anything you want.
+function nameSubmit(name)
+{
+    studenName = name;
+}
 
-//         const todo =  {
-//             title,
-//             title2,
-//             complete : false
-//         };
-
-//         todoRef.push(todo);
-//     }
-
-
-//     return(
-//         <div>
-//         <input type = "text" onChange = {handleOnChange} value = {title}/>
-//         <input type = "text" onChange = {handleOnChange2} value = {title2}/>
-//         <button onClick = {createTodo}> Add Todo </button>
-//         </div>
-//     )
-// }
-
-
+function surveySubmit(data){
+    console.log("Inside on submit",(data.question1)[0]);
+    const temp = firebase.database().ref("StudentSurvey");
+    const todo =  {
+        studentName :  studenName,
+        answers : {
+           ans1 :  (data.question1)[0],
+           ans2 :  (data.question2)[0],
+           ans3 :  (data.question3)[0]
+        }
+    };
+    temp.push(todo);
+    
+    // this.setState({isSubmitted : true});
+};
 class StudentSurvey extends Component
 {
-    studentNameSubmit(event){
+    studentNameSubmit(name){
         var name = this.refs.name.value;
+        studenName = name;
         this.setState({studentName : name}, function(){
             //console.log("I am in studentNameSubmit: ",event);
             console.log(this.state);
         });
+    
     }
 
-    surveySubmit(event){
-        console.log("Inside on submit");
-        console.log("this.state: ",this.state);
-        // const temp = firebase.database().ref("StudentSurvey/"+this.state.uid);
-         const temp = firebase.database().ref("StudentSurvey");
+    // surveySubmit(event){
+    //     console.log("Inside on submit");
+    //     console.log("this.state: ",this.state);
+    //     // const temp = firebase.database().ref("StudentSurvey/"+this.state.uid);
+    //      const temp = firebase.database().ref("StudentSurvey");
 
 
-        const todo =  {
-            studentName : this.state.studentName ,
-            answers : this.state.answers
-        };
-        temp.push(todo);
+    //     const todo =  {
+    //         studentName : this.state.studentName ,
+    //         answers : this.state.answers
+    //     };
+    //     temp.push(todo);
         
-        this.setState({isSubmitted : true});
-    }
+    //     this.setState({isSubmitted : true});
+    // }
+
+  
 
     answerSelected(event){
         var answers = this.state.answers;
@@ -108,13 +102,39 @@ class StudentSurvey extends Component
           isSubmitted : false
     };
     this.studentNameSubmit = this.studentNameSubmit.bind(this);
-    this.surveySubmit = this.surveySubmit.bind(this);
+    // this.surveySubmit = this.surveySubmit.bind(this);
     this.answerSelected = this.answerSelected.bind(this);
     }
+
+  
    render()
    {
        var name = "";
        var questions = "";
+       var   question2 =  {"title":"Synchronous vs Asynchronous Learning",
+       "pages":
+       [{"name":"page1","elements":
+           [
+               {"type":"checkbox","name":"question1","title":"What time do you watch the lectures ? ","choices":
+               [{"value":"Not specific","text":"Not specific"},
+                {"value":"Night time",  "text":"Night time"},
+                {"value":"Day time",    "text":"Day time"}]},
+
+                {"type":"checkbox","name":"question2","title":"Do you have a preference of posting question anonymously over non-anonymously ? ","choices":
+                [{"value":"Yes", "text":"Yes"},
+                 {"value":"No" , "text":"No"}]},
+           
+ 
+           
+               {"type":"checkbox","name":"question3","title":">How often you change the speed of the lecture ?","choices":
+               [{"value":"Often", "text":"Often"},
+               {"value":"Seldom" , "text":"Seldom"}]},
+       
+           ]
+       }]
+   
+      
+   };
 
        if(this.state.studentName === "" && this.state.isSubmitted ===false)
        {
@@ -131,66 +151,75 @@ class StudentSurvey extends Component
            name = <div>
                <h1>Welcome ! {this.state.studentName}</h1>
                </div>
+
+ 
             questions = <div>
                 <h2> Here are some Questions </h2>
                 <form onSubmit = {this.surveySubmit}>
                     <div className ="card">
                     <label>What time do you watch the lectures ? </label><br/>
-                    <input type = "radio" name = "ans1" value = "Not specific"     onChange =     {this.answerSelected}/> Not specific  	
-                    <input type = "radio" name = "ans1" value = "Night time" onChange =     {this.answerSelected}/> Night time
+                    <input type = "radio" name = "ans1" value = "Not specific" onChange =     {this.answerSelected}/> Not specific  	
+                    <input type = "radio" name = "ans1" value = "Night time"   onChange =     {this.answerSelected}/> Night time
                     <input type = "radio" name = "ans1" value = "Day time"     onChange =     {this.answerSelected}/> Day time
-    
-
-                    {/* <input type = "radio" name = "ans1" value = "Sports"     onChange =     {this.answerSelected}/> Sports
-                    <input type = "radio" name = "ans1" value = "Technology" onChange =     {this.answerSelected}/> Technology
-                    <input type = "radio" name = "ans1" value = "Movies"     onChange =     {this.answerSelected}/> Movies
-                    <input type = "radio" name = "ans1" value = "Study"      onChange =     {this.answerSelected}/> Study */}
                     </div>
 
                     <div className ="card">
                     <label>Do you have a preference of posting question anonymously over non-anonymously ?  </label><br/>
                     <input type = "radio" name = "ans2" value = "Yes" onChange = {this.answerSelected}/> Yes
                     <input type = "radio" name = "ans2" value = "No" onChange = {this.answerSelected}/> No
-                    {/* <input type = "radio" name = "ans2" value = "Pink" onChange = {this.answerSelected}/> Pink
-                    <input type = "radio" name = "ans2" value = "Yellow" onChange = {this.answerSelected}/> Yellow */}
                     </div>
 
                     <div className ="card">
                     <label>How often you change the speed of the lecture ?  </label><br/>
                     <input type = "radio" name = "ans3" value = "Often" onChange = {this.answerSelected}/> Often
                     <input type = "radio" name = "ans3" value = "Seldom" onChange = {this.answerSelected}/> Seldom
-                    {/* <input type = "radio" name = "ans3" value = "Perth" onChange = {this.answerSelected}/> Perth
-                    <input type = "radio" name = "ans3" value = "Melbourne" onChange = {this.answerSelected}/> Melbourne */}
                     </div>
-
-                    {/* <div className ="card">
-                    <label>What car is that  </label><br/>
-                    <input type = "radio" name = "ans4" value = "Ford" onChange = {this.answerSelected}/> Ford
-                    <input type = "radio" name = "ans4" value = "BMW" onChange = {this.answerSelected}/> BMW
-                    <input type = "radio" name = "ans4" value = "Merc" onChange = {this.answerSelected}/> Merc
-                    <input type = "radio" name = "ans4" value = "Nissan" onChange = {this.answerSelected}/> Nissan
-                    </div> */}
 
                     <div className ="card">
                     <label>If given an option, will you prefer attending the class in person  </label><br/>
                     <input type = "radio" name = "ans5" value = "Most of the Time" onChange = {this.answerSelected}/> Most of the Time
                     <input type = "radio" name = "ans5" value = "Seldom" onChange = {this.answerSelected}/> Seldom
-                    {/* <input type = "radio" name = "ans5" value = "Aus" onChange = {this.answerSelected}/> Aus
-                    <input type = "radio" name = "ans5" value = "Russia" onChange = {this.answerSelected}/> Russia */}
                     </div>
-                    <input className = "feedback-button" type="submit" value = "submit"/>
+                    <input className = "feedback-button" type="submit" value = "submit" type = "button"/>
                 </form>
                 </div>
+
+        window.survey = new Survey.Model(question2);
        }
 
-       return(
+       if(questions === "")
+       {
+        return(
+       
             <div>
-               {name}   
-               {questions}
+               {name}     
             </div>
        )
+
+       }
+       else {
+        return(
+       
+            <div>
+            <Survey.Survey
+            onComplete = {data=>
+                {
+                    console.log(data.valuesHash);
+                    surveySubmit(data.valuesHash);
+
+                }
+            
+            }
+            json = {question2} />
+               
+            </div>
+       )
+       }
+
+
+
    } 
 }
 
 
-export default StudentSurvey
+export default StudentSurvey;
