@@ -1,9 +1,10 @@
     import React,{Component} from "react";
     import "survey-react/survey.css";
-
     import * as Survey from "survey-react";
     import firebase from "../utils/firebase";
     var uuid = require("uuid");
+    // Survey.StylesManager.applyTheme("modern");
+
 
     var studenName = "";
 
@@ -27,7 +28,6 @@
             var name = this.refs.name.value;
             studenName = name;
             this.setState({studentName : name}, function(){
-                //console.log("I am in studentNameSubmit: ",event);
                 console.log(this.state);
             });
         
@@ -39,13 +39,6 @@
         this.state = {
             uid:uuid.v1(),
             studentName : "" ,
-            answers : {
-                ans1 : '',
-                ans2 : '',
-                ans3 : '',
-                ans4 : '',
-                ans5 : '',
-            },
             isSubmitted : false
         };
         this.studentNameSubmit = this.studentNameSubmit.bind(this);
@@ -68,9 +61,30 @@
                         [{"value":"Yes", "text":"Yes"},
                         {"value":"No" , "text":"No"}]},
                 
-                    {"type":"checkbox","name":"question3","title":">How often you change the speed of the lecture ?","choices":
-                    [{"value":"Often", "text":"Often"},
-                    {"value":"Seldom" , "text":"Seldom"}]},
+                        {"type":"checkbox","name":"question3","title":"How often you change the speed of the lecture ?","choices":
+                        [{"value":"Often", "text":"Often"},
+                        {"value":"Seldom" , "text":"Seldom"}]},
+
+                        {"type":"checkbox","name":"question4","title":" Do you prefer mult-tasking while you are watching the lecutures ?","choices":
+                        [{"value":"Often", "text":"Often"},
+                        {"value":"Seldom" , "text":"Seldom"}]},
+
+                        {"type":"checkbox","name":"question5","title":" Does immidiate feedback matter to you ?","choices":
+                        [{"value":"Yes", "text":"Yes"},
+                        {"value":"No" , "text":"No"}]},
+
+                        {"type":"checkbox","name":"question6","title":" Are you an undergraduate or post-graduate student ?","choices":
+                        [{"value":"Under Graduate", "text":"Under Graduate"},
+                        {"value":"Post Graduate" , "text":"Post Graduate"}]},
+
+                        {"type":"checkbox","name":"question7","title":" Are most of your the courses you study of Qualitative or Quantitative Nature ?","choices":
+                        [{"value":"Qualitative", "text":"Qualitative"},
+                        {"value":"Quantitative" , "text":"Quantitative"}]},
+
+                        {"type":"checkbox","name":"question8","title":" Do you prefer Synchronous or Asynchronous Learning ?","choices":
+                        [{"value":"Qualitative", "text":"Qualitative"},
+                        {"value":"Quantitative" , "text":"Quantitative"}]},
+
             
                 ]
             }]

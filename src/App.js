@@ -13,10 +13,6 @@ function App() {
     <div className="App">
     <h1> Survey</h1>
     <StudentSurvey/>
-
-    {/* <Survey.Survey
-       json = {surveyJSON} 
-        /> */}
     </div>
   );
 }
