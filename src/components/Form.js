@@ -16,7 +16,12 @@
             answers : {
             ans1 :  (data.question1)[0],
             ans2 :  (data.question2)[0],
-            ans3 :  (data.question3)[0]
+            ans3 :  (data.question3)[0],
+            ans4 :  (data.question4)[0],
+            ans5 :  (data.question5)[0],
+            ans6 :  (data.question6)[0],
+            ans7 :  (data.question7)[0],
+            ans8 :  (data.question8)[0]
             }
         };
         temp.push(todo);
