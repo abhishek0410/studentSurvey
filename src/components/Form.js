@@ -30,7 +30,10 @@
     class StudentSurvey extends Component
     {
         studentNameSubmit(name){
-            var name = this.refs.name.value;
+            // var name = this.refs.name.value;
+            var name = "You Are Anonymous";
+            if(this.refs.name.value !== "") name = this.refs.name.value;
+            console.log("name: ", name);
             studenName = name;
             this.setState({studentName : name}, function(){
                 console.log(this.state);
@@ -82,13 +85,15 @@
                         [{"value":"Under Graduate", "text":"Under Graduate"},
                         {"value":"Post Graduate" , "text":"Post Graduate"}]},
 
-                        {"type":"checkbox","name":"question7","title":" Are most of your the courses you study of Qualitative or Quantitative Nature ?","choices":
+                        {"type":"checkbox","name":"question7",
+                        "title":" Are most of your the courses you study of Qualitative or Quantitative Nature ? Note : Qualitative : Loosely speaking, something not involving any sort of numerical calculations. Quantitative: Something which does require numerical calculations."
+                        ,"choices":
                         [{"value":"Qualitative", "text":"Qualitative"},
                         {"value":"Quantitative" , "text":"Quantitative"}]},
 
                         {"type":"checkbox","name":"question8","title":" Do you prefer Synchronous or Asynchronous Learning ?","choices":
-                        [{"value":"Qualitative", "text":"Qualitative"},
-                        {"value":"Quantitative" , "text":"Quantitative"}]},
+                        [{"value":"Synchronous",  "text":"Synchronous"},
+                        {"value":"Asynchronous" , "text":"Asynchronous"}]},
 
             
                 ]
