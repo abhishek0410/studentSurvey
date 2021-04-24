@@ -1,0 +1,3 @@
+
+
+class about extends CompositionEvent

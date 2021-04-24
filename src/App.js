@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import StudentSurvey from "./components/Form";
+import LandingPage from "./components/LandingPage";
 import "survey-react/survey.css";
 
 import * as Survey from "survey-react";
@@ -11,8 +11,7 @@ function App() {
 
   return (
     <div className="App">
-    <h1> Survey</h1>
-    <StudentSurvey/>
+    <LandingPage/>
     </div>
   );
 }
