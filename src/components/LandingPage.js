@@ -5,9 +5,8 @@
     import "survey-react/survey.css";
 
     import StudentSurvey from "./Survey";
-  
+    import Analysis from "./analysis";
 
-   
 
     class LandingPage extends Component
     {
@@ -38,6 +37,7 @@
                   </nav>
                   <Route path="/" exact component={StudentSurvey} />
                   <Route path="/about" exact component={StudentSurvey} />
+                  <Route path="/analysis" exact component={Analysis} />
                  
                 </div>
               </Router>

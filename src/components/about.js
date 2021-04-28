@@ -1,3 +1,3 @@
 
 
-class about extends CompositionEvent
+// class about extends CompositionEvent
