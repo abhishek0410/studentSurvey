@@ -6,6 +6,7 @@
 
     import StudentSurvey from "./Survey";
     import Analysis from "./analysis";
+    import About    from "./about";
 
 
     class LandingPage extends Component
@@ -36,7 +37,7 @@
                     </div>
                   </nav>
                   <Route path="/" exact component={StudentSurvey} />
-                  <Route path="/about" exact component={StudentSurvey} />
+                  <Route path="/about" exact component={About} />
                   <Route path="/analysis" exact component={Analysis} />
                  
                 </div>

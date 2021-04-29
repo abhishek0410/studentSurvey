@@ -36,7 +36,7 @@ function surveySubmit(data){
         studentNameSubmit(name)
         {
             // var name = this.refs.name.value;
-            var name = "You Are Anonymous";
+            name = "You Are Anonymous";
             if(this.refs.name.value !== "") name = this.refs.name.value;
             console.log("name: ", name);
             studenName = name;
