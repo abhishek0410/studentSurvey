@@ -7,6 +7,7 @@
     import StudentSurvey from "./Survey";
     import Analysis from "./analysis";
     import About    from "./about";
+    import Predict  from "./predict";
 
 
     class LandingPage extends Component
@@ -33,12 +34,18 @@
                             Analysis
                           </Link>
                         </li>
+                        <li className="nav-item active">
+                          <Link to="/predict" className="nav-link">
+                            Predict
+                          </Link>
+                        </li>
                       </ul>
                     </div>
                   </nav>
                   <Route path="/" exact component={StudentSurvey} />
                   <Route path="/about" exact component={About} />
                   <Route path="/analysis" exact component={Analysis} />
+                  <Route path="/predict" exact component={Predict} />
                  
                 </div>
               </Router>
