@@ -81,39 +81,63 @@ class StudentSurvey extends Component
             [{"name":"page1","elements":
                 [
                     {"type":"checkbox","name":"question1","title":"What time do you watch the lectures ? ","choices":
-                    [{"value":"Not specific","text":"Not specific"},
-                        {"value":"Night time",  "text":"Night time"},
-                        {"value":"Day time",    "text":"Day time"}]},
+                        [
+                            {"value":"Not specific","text":"Not specific"},
+                            {"value":"Night time",  "text":"Night time"},
+                            {"value":"Day time",    "text":"Day time"}
+                        ]
+                    },
 
-                        {"type":"checkbox","name":"question2","title":"Do you have a preference of posting question anonymously over non-anonymously ? ","choices":
-                        [{"value":"Yes", "text":"Yes"},
-                        {"value":"No" , "text":"No"}]},
+                    {"type":"checkbox","name":"question2","title":"Do you have a preference of posting question anonymously over non-anonymously ? ","choices":
+                        [
+                            {"value":"Yes", "text":"Yes"},
+                            {"value":"No" , "text":"No"}
+                        ]
+                    },
                 
-                        {"type":"checkbox","name":"question3","title":"How often you change the speed of the lecture ?","choices":
-                        [{"value":"Often", "text":"Often"},
-                        {"value":"Seldom" , "text":"Seldom"}]},
+                    {"type":"checkbox","name":"question3","title":"How often you change the speed of the lecture ?","choices":
+                        [
+                            {"value":"Often", "text":"Often"},
+                            {"value":"Seldom" , "text":"Seldom"}
+                        ]
+                    },
 
-                        {"type":"checkbox","name":"question4","title":" Do you prefer mult-tasking while you are watching the lecutures ?","choices":
-                        [{"value":"Often", "text":"Often"},
-                        {"value":"Seldom" , "text":"Seldom"}]},
+                    {"type":"checkbox","name":"question4","title":" Do you prefer mult-tasking while you are watching the lecutures ?","choices":
+                        [
+                            {"value":"Often", "text":"Often"},
+                            {"value":"Seldom" , "text":"Seldom"}
+                        ]
+                    },
 
-                        {"type":"checkbox","name":"question5","title":" Does immidiate feedback matter to you ?","choices":
-                        [{"value":"Yes", "text":"Yes"},
-                        {"value":"No" , "text":"No"}]},
+                    {"type":"checkbox","name":"question5","title":" Does immidiate feedback matter to you ?","choices":
+                        [
+                            {"value":"Yes", "text":"Yes"},
+                            {"value":"No" , "text":"No"}
+                        ]
+                    },
 
-                        {"type":"checkbox","name":"question6","title":" Are you an undergraduate or post-graduate student ?","choices":
-                        [{"value":"Under Graduate", "text":"Under Graduate"},
-                        {"value":"Post Graduate" , "text":"Post Graduate"}]},
+                    {"type":"checkbox","name":"question6","title":" Are you an undergraduate or post-graduate student ?","choices":
+                        [
+                            {"value":"Under Graduate", "text":"Under Graduate"},
+                            {"value":"Post Graduate" , "text":"Post Graduate"}
+                        ]
+                    },
 
-                        {"type":"checkbox","name":"question7",
+                    {"type":"checkbox","name":"question7",
                         "title":" Are most of your the courses you study of Qualitative or Quantitative Nature ? Note : Qualitative : Loosely speaking, something not involving any sort of numerical calculations. Quantitative: Something which does require numerical calculations."
                         ,"choices":
-                        [{"value":"Qualitative", "text":"Qualitative"},
-                        {"value":"Quantitative" , "text":"Quantitative"}]},
+                        [
+                            {"value":"Qualitative", "text":"Qualitative"},
+                            {"value":"Quantitative" , "text":"Quantitative"}
+                        ]
+                    },
 
-                        {"type":"checkbox","name":"question8","title":" Do you prefer Synchronous or Asynchronous Learning ?","choices":
-                        [{"value":"Synchronous",  "text":"Synchronous"},
-                        {"value":"Asynchronous" , "text":"Asynchronous"}]},
+                    {"type":"checkbox","name":"question8","title":" Do you prefer Synchronous or Asynchronous Learning ?","choices":
+                        [
+                            {"value":"Synchronous",  "text":"Synchronous"},
+                            {"value":"Asynchronous" , "text":"Asynchronous"}
+                        ]
+                    },
                 ]
             }]   
         };

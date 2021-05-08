@@ -20,7 +20,7 @@ class Predict extends Component
     {
         predict();
         return(
-            <h3>Page for Prediction</h3>
+            <h3>1.) Download the template</h3>
         )
     }
 }
