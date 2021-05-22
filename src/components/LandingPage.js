@@ -8,6 +8,7 @@
     import Analysis from "./analysis";
     import About    from "./about";
     import Predict  from "./predict";
+    import Disclaimer  from "./disclaimer";
 
 
     class LandingPage extends Component
@@ -39,6 +40,11 @@
                             Predict
                           </Link>
                         </li>
+                        <li className="nav-item active">
+                          <Link to="/disclaimer" className="nav-link">
+                            Disclaimer
+                          </Link>
+                        </li>
                       </ul>
                     </div>
                   </nav>
@@ -46,6 +52,7 @@
                   <Route path="/about" exact component={About} />
                   <Route path="/analysis" exact component={Analysis} />
                   <Route path="/predict" exact component={Predict} />
+                  <Route path="/disclaimer" exact component={Disclaimer} />
                  
                 </div>
               </Router>
