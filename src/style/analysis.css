@@ -1,6 +1,7 @@
 #pc1 {
-    position: absolute;
-    top: -16px;
-    right: -1040px;
+    position: relative;
+    top: -66px;
+    right: 1600px;
+    left : 1200px
 
  }
