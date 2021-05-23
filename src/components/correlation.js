@@ -1,5 +1,5 @@
 
-import firebase from "../utils/firebase"; 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown,DropdownButton } from 'react-bootstrap';
 import React,{Component} from "react";
@@ -37,9 +37,7 @@ class Correlation extends Component
       fontFamily: "Arial"
     }
     // getDataFromDB();
-    const labels = ['2016', '2017', '2018'];
-    const data = [324, 45, 672];
-    const options = { fillColor: '#FFFFFF', strokeColor: '#0000FF' };
+
     return(
       <div>
         <DropdownButton menuAlign="right" 

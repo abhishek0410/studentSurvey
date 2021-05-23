@@ -1,12 +1,12 @@
 import "../style/sidebar.css";
 import Histogram from 'react-chart-histogram';
 import firebase from "../utils/firebase"; 
-import {Nav} from "react-bootstrap";
-import {Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-import { PieChart } from 'react-minimal-pie-chart';
+
+import {Container, Row, Col} from "react-bootstrap";
+
 import Sidebar from "./sidebar.js";
 import "../style/analysis.css";
-import StudentSurvey from "./Survey";
+
 const calculateCorrelation = require("calculate-correlation");
 const { Component } = require("react");
 var totalSurvey  = 0;
@@ -22,13 +22,12 @@ var pearSonCorr = {
     q6_q8 : 0,
     q7_q8 : 0,
     q8_q8 : 0
-
 }
 
 function Calculate_pearSonCorr(arrData)
 {
     console.log("arrData");
-    // console.log(arrData.q1_ans_Num);
+    
     const q1 = arrData.q1_ans_Num;
     const q2 = arrData.q2_ans_Num;
     const q3 = arrData.q3_ans_Num;
@@ -90,13 +89,9 @@ var StudentResponses =
     q7_ans_Cat : [],
     q8_ans_Cat : []
 };
-
-
-
   
 class About extends Component
 {
-   
     state = {
         show_T_Test : false,
         showCorr    : false,
@@ -122,61 +117,61 @@ class About extends Component
                 //Questions1.
                 // debugger;
                 StudentResponses.q1_ans_Cat.push(childData.answers.ans1);
-                if      (childData.answers.ans1 == "Not specific") {  StudentResponses.q1_ans_Num.push(0);}
+                if      (childData.answers.ans1 === "Not specific") {  StudentResponses.q1_ans_Num.push(0);}
                         
-                else if (childData.answers.ans2 == "Night time")   {  StudentResponses.q1_ans_Num.push(1);}
+                else if (childData.answers.ans2 === "Night time")   {  StudentResponses.q1_ans_Num.push(1);}
                         
                 else                                                { StudentResponses.q1_ans_Num.push(2);}
                     
                 //Question2.
                 StudentResponses.q2_ans_Cat.push(childData.answers.ans2);
-                if(childData.answers.ans2 == "Yes")
+                if(childData.answers.ans2 === "Yes")
                         StudentResponses.q2_ans_Num.push(0);
-                else if (childData.answers.ans2 == "No")
+                else if (childData.answers.ans2 === "No")
                         StudentResponses.q2_ans_Num.push(1);
             
                 //Question3.
                 StudentResponses.q3_ans_Cat.push(childData.answers.ans3);
-                if(childData.answers.ans3 == "Often")
+                if(childData.answers.ans3 === "Often")
                         StudentResponses.q3_ans_Num.push(0);
-                else if (childData.answers.ans3 == "Seldom")
+                else if (childData.answers.ans3 === "Seldom")
                         StudentResponses.q3_ans_Num.push(1);
             
             
                  //Question4.
-                 StudentResponses.q4_ans_Cat.push(childData.answers.ans4);
-                 if(childData.answers.ans4 == "Often")
-                         StudentResponses.q4_ans_Num.push(0);
-                 else if (childData.answers.ans4 == "Seldom")
-                         StudentResponses.q4_ans_Num.push(1);
+                StudentResponses.q4_ans_Cat.push(childData.answers.ans4);
+                if(childData.answers.ans4 === "Often")
+                        StudentResponses.q4_ans_Num.push(0);
+                else if (childData.answers.ans4 === "Seldom")
+                        StudentResponses.q4_ans_Num.push(1);
             
                   //Question5.
-                  StudentResponses.q5_ans_Cat.push(childData.answers.ans5);
-                  if(childData.answers.ans5 == "Yes")
-                          StudentResponses.q5_ans_Num.push(0);
-                  else if (childData.answers.ans5 == "No")
-                          StudentResponses.q5_ans_Num.push(1);
+                StudentResponses.q5_ans_Cat.push(childData.answers.ans5);
+                if(childData.answers.ans5 === "Yes")
+                        StudentResponses.q5_ans_Num.push(0);
+                else if (childData.answers.ans5 === "No")
+                        StudentResponses.q5_ans_Num.push(1);
             
-                   //Question6.
-                   StudentResponses.q6_ans_Cat.push(childData.answers.ans6);
-                   if(childData.answers.ans6 == "Under Graduate")
-                           StudentResponses.q6_ans_Num.push(0);
-                   else if (childData.answers.ans6 == "Post Graduate")
-                           StudentResponses.q6_ans_Num.push(1);
+                //Question6.
+                StudentResponses.q6_ans_Cat.push(childData.answers.ans6);
+                if(childData.answers.ans6 === "Under Graduate")
+                        StudentResponses.q6_ans_Num.push(0);
+                else if (childData.answers.ans6 === "Post Graduate")
+                        StudentResponses.q6_ans_Num.push(1);
             
-                    //Question7.
-                    StudentResponses.q7_ans_Cat.push(childData.answers.ans7);
-                    if(childData.answers.ans7 == "Qualitative")
-                            StudentResponses.q7_ans_Num.push(0);
-                    else if (childData.answers.ans7 == "Quantitative")
-                            StudentResponses.q7_ans_Num.push(1);
+                //Question7.
+                StudentResponses.q7_ans_Cat.push(childData.answers.ans7);
+                if(childData.answers.ans7 === "Qualitative")
+                        StudentResponses.q7_ans_Num.push(0);
+                else if (childData.answers.ans7 === "Quantitative")
+                        StudentResponses.q7_ans_Num.push(1);
             
-                    //Question8.
-                    StudentResponses.q8_ans_Cat.push(childData.answers.ans8);
-                    if(childData.answers.ans8 == "Synchronous")
-                            StudentResponses.q8_ans_Num.push(0);
-                    else if (childData.answers.ans8 == "Asynchronous")
-                            StudentResponses.q8_ans_Num.push(1);
+                //Question8.
+                StudentResponses.q8_ans_Cat.push(childData.answers.ans8);
+                if(childData.answers.ans8 === "Synchronous")
+                        StudentResponses.q8_ans_Num.push(0);
+                else if (childData.answers.ans8 === "Asynchronous")
+                        StudentResponses.q8_ans_Num.push(1);
                   });
                   
                 });
@@ -185,10 +180,7 @@ class About extends Component
       }
 
     handleClick = (componentSelected) =>{
-
-       
-
-        if(componentSelected == "Correlation")
+        if(componentSelected === "Correlation")
         {
             console.log("Calculating Coorelation");
             Calculate_pearSonCorr(StudentResponses);
@@ -199,16 +191,7 @@ class About extends Component
     render()
     {
         this.getDataFromDB();
-        const mystyle1 = {
-            color: "white",
-            position: "absolute",
-            padding: "10px",
-            top : "200px",
-            right : "450px",
-            fontFamily: "Arial"
-          };
-      
-        // getDataFromDB();
+
         console.log("Total Survey: ", totalSurvey);
         console.log(StudentResponses);
         const options = { fillColor: '#00cc99', strokeColor: '#0000FF' };

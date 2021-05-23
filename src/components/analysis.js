@@ -1,90 +1,13 @@
-
-import firebase from "../utils/firebase"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown,DropdownButton } from 'react-bootstrap';
 import React,{Component} from "react";
 import { PieChart } from 'react-minimal-pie-chart';
 import "../style/analysis.css";
-import Histogram from 'react-chart-histogram';
 
 
-let surveyName = "Select a Survery";
-let response   =  new Map();
-var Synchronous =
-            {
-              q1_ans1 : 0,
-              q1_ans2 : 0,
-              q1_ans3 : 0,
-            
-              q2_ans1 : 0,
-              q2_ans2 : 0,
-            
-              q3_ans1 : 0,
-              q3_ans2 : 0,
-            
-              q4_ans1 : 0,
-              q4_ans2 : 0,
-            
-              q5_ans1 : 0,
-              q5_ans2 : 0,
-            
-              q6_ans1 : 0,
-              q6_ans2 : 0,
-            
-              q7_ans1 : 0,
-              q7_ans2 : 0
-            };
-
-response.set('Asynchronous',
-        {
-          q1_ans1 : 0,
-          q1_ans2 : 0,
-          q1_ans3 : 0,
-
-          q2_ans1 : 0,
-          q2_ans2 : 0,
-
-          q3_ans1 : 0,
-          q3_ans2 : 0,
-
-          q4_ans1 : 0,
-          q4_ans2 : 0,
-
-          q5_ans1 : 0,
-          q5_ans2 : 0,
-
-          q6_ans1 : 0,
-          q6_ans2 : 0,
-
-          q7_ans1 : 0,
-          q7_ans2 : 0
-        });
-    
-var asynchronousResponse  =  new Map();
-var totalSurvey  = 0;
-
-//Import the Data from Real Time Database:
-function getDataFromDB() {
-  var leadsRef = firebase.database().ref('StudentSurvey');
-  leadsRef.on('value', function(snapshot) {
-  snapshot.forEach(function(childSnapshot) {
-  totalSurvey++;
-  var childData = childSnapshot.val();
-
-  //Save the value in synchronousArray and asynchronousArray
-  var surveyFinalResponse = childData.answers.ans8;
-  // console.log(Synchronous);
-
-    });
-  });
-
-}
 
 class Analysis extends Component
 {
-  
-
-
   render()
   {
     const mystyle1 = {
@@ -112,10 +35,7 @@ class Analysis extends Component
       right : "-550px",
       fontFamily: "Arial"
     }
-    getDataFromDB();
-    const labels = ['2016', '2017', '2018'];
-    const data = [324, 45, 672];
-    const options = { fillColor: '#FFFFFF', strokeColor: '#0000FF' };
+    // getDataFromDB();
     return(
       <div>
         <DropdownButton menuAlign="right" 

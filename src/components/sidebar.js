@@ -1,11 +1,8 @@
 import React from "react";
 import {Nav, Button} from "react-bootstrap";
-import { withRouter } from "react-router";
-
-import Correlation from "./correlation";
 import About    from "./about";
 import Disclaimer  from "./disclaimer";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../style/sidebar.css";
 
 const Side = props => {
