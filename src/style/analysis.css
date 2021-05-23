@@ -5,3 +5,10 @@
     left : 1200px
 
  }
+
+ .hist1{
+    position: relative;
+    top: +300px;
+    right: 300px;
+    left : 150px 
+ }

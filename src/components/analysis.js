@@ -65,8 +65,6 @@ var totalSurvey  = 0;
 
 //Import the Data from Real Time Database:
 function getDataFromDB() {
-
-
   var leadsRef = firebase.database().ref('StudentSurvey');
   leadsRef.on('value', function(snapshot) {
   snapshot.forEach(function(childSnapshot) {
@@ -75,41 +73,8 @@ function getDataFromDB() {
 
   //Save the value in synchronousArray and asynchronousArray
   var surveyFinalResponse = childData.answers.ans8;
-  Synchronous.q1_ans1++;
+  // console.log(Synchronous);
 
-  // synchronousArray.push(childData.answers.ans8 );
-    // if      (childData.answers.ans1 === 'Not specific')    { response.get('Synchronous').q1_ans1++;}
-    // else if (childData.answers.ans1 === "Night time")       response.get(surveyFinalResponse).q1_ans2++;
-    // else                                                    response.get(surveyFinalResponse).q1_ans3++;
-
-    // if       (childData.answers.ans2 === "Yes")             response.get(surveyFinalResponse).q2_ans1++;   
-    // else                                                    response.get(surveyFinalResponse).q2_ans2++;     
-    
-    // if       (childData.answers.ans3 === "Often")          response.get(surveyFinalResponse).q3_ans1++;   
-    // else                                                   response.get(surveyFinalResponse).q3_ans2++; 
-    
-    // if       (childData.answers.ans4 === "Often")          response.get(surveyFinalResponse).q4_ans1++;   
-    // else                                                   response.get(surveyFinalResponse).q4_ans2++;  
-
-    // if       (childData.answers.ans5 === "Yes")            response.get(surveyFinalResponse).q5_ans1++;   
-    // else                                                   response.get(surveyFinalResponse).q5_ans2++;  
-
-
-    // if       (childData.answers.ans6 === "Under Graduate")       response.get(surveyFinalResponse).q6_ans1++;   
-    // else                                                         response.get(surveyFinalResponse).q6_ans2++;  
-
-
-    // if       (childData.answers.ans7 === "Qualitative")          response.get(surveyFinalResponse).q7_ans1++;   
-    // else                                                         response.get(surveyFinalResponse).q7_ans2++;  
-
-
-   
-
-
-    console.log(Synchronous);
-
-
-  // console.log(childData);
     });
   });
 

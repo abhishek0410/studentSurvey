@@ -11,8 +11,6 @@ import "../style/sidebar.css";
 const Side = props => {
    
     const handlOnSelect1=(someVal)=>{
-        // console.log("Correlation Button Selected");
-        // console.log("Value obtained is ", someVal);
         props.onClickChange("Correlation");
     }
     return (
@@ -26,7 +24,6 @@ const Side = props => {
             <div className="sidebar-sticky"></div>
             <Nav.Item>
             <Button onClick  = {(event) => handlOnSelect1(event)} variant="primary">Correlation</Button>{' '}
-                {/* <Nav.Link to = "about1"className = "Coorelation" href="about">Correlation</Nav.Link> */}
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link href="T_Tesing">T Tesing</Nav.Link>
