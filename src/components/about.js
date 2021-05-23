@@ -19,28 +19,39 @@ var pearSonCorr = {
     q5_q8 : 0,
     q6_q8 : 0,
     q7_q8 : 0,
+    q8_q8 : 0
 
 }
 
 function Calculate_pearSonCorr(arrData)
 {
-    // debugger;
     console.log("arrData");
     // console.log(arrData.q1_ans_Num);
-    const x = arrData.q1_ans_Num;
-    const y = arrData.q8_ans_Num;
-    // console.log("x");
-    // console.log(x);
+    const q1 = arrData.q1_ans_Num;
+    const q2 = arrData.q2_ans_Num;
+    const q3 = arrData.q3_ans_Num;
+    const q4 = arrData.q4_ans_Num;
+    const q5 = arrData.q5_ans_Num;
+    const q6 = arrData.q6_ans_Num;
+    const q7 = arrData.q7_ans_Num;
+    const q8 = arrData.q8_ans_Num;
 
-    // console.log("y");
-    // console.log(y);
-    // pearSonCorr.q1_q8 =calculateCorrelation(arrData.q1_ans_Num, arrData.q8_ans_Num);
-    // pearSonCorr.q2_q8 =calculateCorrelation(arrData.q2_ans_Num, arrData.q8_ans_Num);
-    // pearSonCorr.q3_q8 =calculateCorrelation(arrData.q3_ans_Num, arrData.q8_ans_Num);
-    // pearSonCorr.q4_q8 =calculateCorrelation(arrData.q4_ans_Num, arrData.q8_ans_Num);
-    // pearSonCorr.q5_q8 =calculateCorrelation(arrData.q5_ans_Num, arrData.q8_ans_Num);
-    // pearSonCorr.q6_q8 =calculateCorrelation(arrData.q6_ans_Num, arrData.q8_ans_Num);
-    // pearSonCorr.q7_q8 =calculateCorrelation(arrData.q7_ans_Num, arrData.q8_ans_Num);
+    console.log("q1");
+    console.log(q1);
+
+    console.log("q8");
+    console.log(q8);
+    console.log("Coorelation q1-q8: ",calculateCorrelation(q1,q8));
+    console.log("Coorelation q2-q8: ",calculateCorrelation(q2,q8));
+    pearSonCorr.q1_q8 = calculateCorrelation(q1,q8);
+    pearSonCorr.q2_q8 = calculateCorrelation(q2,q8);
+    pearSonCorr.q3_q8 = calculateCorrelation(q3,q8);
+    pearSonCorr.q4_q8 = calculateCorrelation(q4,q8);
+    pearSonCorr.q5_q8 = calculateCorrelation(q5,q8);
+    pearSonCorr.q6_q8 = calculateCorrelation(q6,q8);
+    pearSonCorr.q7_q8 = calculateCorrelation(q7,q8);
+    pearSonCorr.q8_q8 = calculateCorrelation(q8,q8);
+    debugger;
 
 }
 
@@ -125,7 +136,7 @@ function getDataFromDB() {
        StudentResponses.q6_ans_Cat.push(childData.answers.ans6);
        if(childData.answers.ans6 == "Under Graduate")
                StudentResponses.q6_ans_Num.push(0);
-       else if (childData.answers.ans6 == "Post Graduate    ")
+       else if (childData.answers.ans6 == "Post Graduate")
                StudentResponses.q6_ans_Num.push(1);
 
         //Question7.
@@ -148,19 +159,26 @@ function getDataFromDB() {
   
 class About extends Component
 {
+   
     state = {
         show_T_Test : false,
         showCorr    : false,
         showNeurNet : false,
         StudentResponses : {},
-        pearSonCorr : {}
+        pearSonCorr : {},
+        dataFetched : false
     }
 
     handleClick = (componentSelected) =>{
+
+        //Load the data only once.
+        if(!this.state.dataFetched) getDataFromDB();
+
         if(componentSelected == "Correlation")
         {
-            console.log("Correlation selected");
-            this.setState({showCorr:true});
+            console.log("Calculating Coorelation");
+            Calculate_pearSonCorr(StudentResponses);
+            this.setState({dataFetched:true});
         }
     }
 
@@ -176,16 +194,16 @@ class About extends Component
             fontFamily: "Arial"
           };
       
-        getDataFromDB();
+        // getDataFromDB();
         console.log("Total Survey: ", totalSurvey);
         console.log(StudentResponses);
         // console.log( pearSonCorr.q1_q8);
-        Calculate_pearSonCorr(StudentResponses);
+        // Calculate_pearSonCorr(StudentResponses);
         // debugger;
-        const x = [2, 5, 4, 1];
-        const y = [3, 3, 6, 7];
-        const correlation = calculateCorrelation(x, y);
-        console.log(correlation); // logs -0.442807443
+        // const x = [2, 5, 4, 1];
+        // const y = [3, 3, 6, 7];
+        // const correlation = calculateCorrelation(x, y);
+        // console.log(correlation); // logs -0.442807443
       
         return (
             <>
