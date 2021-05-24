@@ -12,7 +12,7 @@ const { Component } = require("react");
 var totalSurvey  = 0;
 
 var corrWith8 =  [];
-var labels1 = ["Ques1","Ques2","Ques3","Ques4","Ques5","Ques6","Ques7"];
+var labels1 = ["Time of Watching Lectures","Preference of Posting Questions","Speed of lecture","Multitasking","Feedback","Type of Degree","Type of Course"];
 var pearSonCorr = {
     q1_q8 : 0,
     q2_q8 : 0,
