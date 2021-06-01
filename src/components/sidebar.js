@@ -23,7 +23,7 @@ const Side = props => {
             <Button onClick  = {(event) => handlOnSelect1(event)} variant="primary">Correlation</Button>{' '}
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link href="T_Tesing">T Tesing</Nav.Link>
+                <Nav.Link href="T_Tesing">T Testing</Nav.Link>
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link eventKey="Prediction_Score">Prediction Score</Nav.Link>
