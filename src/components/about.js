@@ -13,7 +13,23 @@ const calculateCorrelation = require("calculate-correlation");
 const { Component } = require("react");
 
 var corrWith8 =  [];
-var labels1 = ["Time of Watching Lectures","Preference of Posting Questions","Speed of lecture","Multitasking","Feedback","Type of Degree","Type of Course"];
+var corrWit8Asc = [];
+var labels1 = ["Time of Watching Lectures",
+                "Preference of Posting Questions",
+                "Speed of lecture",
+                "Multitasking",
+                "Feedback",
+                "Type of Degree",
+                "Type of Course"];
+
+var labelsDescription = ["Whether the student watches lectures at specfic time",
+                          "Whether the student likes to post question Anonyously",
+                          "If the student changes the speed of lecture often",
+                          "If the student likes multitasking while wathing the lectures",
+                          "If immidiate Feedback matters",
+                          "Undergraduate or Post Graduate",
+                          "Whether the student has Qualitative or Quantitative Subjects"               
+                        ]
 
 
 var StudentResponses =
@@ -171,13 +187,14 @@ class About extends Component
         {
             console.log("Calculating Coorelation");
             corrWith8 = Calculate_pearSonCorr(this.state.StudentResponses);
+            var corrWith8Copy = corrWith8;
+            corrWit8Asc = corrWith8Copy.sort();
+            debugger;
+        
             this.setState({dataFetched:true , showCorr:true , corrCalculated : true});
         }
     }
-    sortVariablesByCoorelation()
-    {
 
-    }
 
     componentDidMount()
     {
@@ -192,30 +209,30 @@ class About extends Component
         return (
             <>
             <h1>Pearson Correlation Coefficient</h1>
-            {this.state.showCorr && 
-           <div className ="hist1">
-
-        <Jumbotron>
-        <h3>Variables in Order of Importance</h3>
-        <p>
-        Nature of Course : "Qualitative or Quantitative has the highest impact on student's preferred mode of learning"
-        </p>
-        <p>
-        Speed of Lecture : "Whether a student prefers to change the speed of the lecture of not is directly proportional to student's preferred mode of learning"
-
-        </p>
-        <p>
-        <Button variant="primary">Learn more</Button>
-        </p>
-        </Jumbotron>
-        <Histogram
-        xLabels={labels1 }
-        yValues={corrWith8}
-        width='600'
-        height='500'
-        options={options}
-        />
-         </div>
+            {this.state.showCorr && <div className ="hist1">
+                <Jumbotron>
+                <h3>Variables in Order of Importance</h3>
+                <p>
+                {labels1[corrWit8Asc.length-1]} : {labelsDescription[corrWit8Asc.length-1]}
+                </p>
+                <p>
+                {labels1[corrWit8Asc.length-2]} : {labelsDescription[corrWit8Asc.length-2]}
+                </p>
+                <p>
+                {labels1[corrWit8Asc.length-3]} : {labelsDescription[corrWit8Asc.length-3]}
+                </p>
+                <p>
+                <Button variant="primary">Learn more</Button>
+                </p>
+                </Jumbotron>
+                <Histogram
+                xLabels={labels1 }
+                yValues={corrWith8}
+                width='600'
+                height='500'
+                options={options}
+                />
+              </div>
             }   
             
             <Container fluid>
