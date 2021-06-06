@@ -2,6 +2,13 @@
 This code file consists of both the front end an backend application.
 This code file is mostly my work, with exceptions at places where i have
 used the standard templates distributed online for free use.
+
+Important: This code base is managed through git. And the work is done on 3 branches.
+There are 3 branches:
+    main
+    feature-1
+    feature-2
+The latest work has been done on feature-2 branch, please be sure to checkout feature-2
 #####  #################   ######
 
 
