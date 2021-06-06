@@ -208,7 +208,16 @@ class About extends Component
         const options = { fillColor: '#00cc99', strokeColor: '#0000FF' };
         return (
             <>
-            <h1>Pearson Correlation Coefficient</h1>
+            <div className='rowC'>
+                <Container fluid>
+                    <Row>
+                        <Col xs={2} id="sidebar-wrapper">      
+                            <Sidebar onClickChange = {this.handleClick}/>
+                        </Col>
+                        <Col  xs={10} id="page-content-wrapper"></Col> 
+                    </Row>
+            </Container>
+            {/* <h1>Pearson Correlation Coefficient</h1> */}
             {this.state.showCorr && <div className ="hist1">
                 <Jumbotron>
                 <h3>Variables in Order of Importance</h3>
@@ -233,16 +242,10 @@ class About extends Component
                 options={options}
                 />
               </div>
+             
             }   
-            
-            <Container fluid>
-                    <Row>
-                        <Col xs={2} id="sidebar-wrapper">      
-                            <Sidebar onClickChange = {this.handleClick}/>
-                        </Col>
-                        <Col  xs={10} id="page-content-wrapper"></Col> 
-                    </Row>
-            </Container>
+             </div>
+  
             </>
             );
     }
