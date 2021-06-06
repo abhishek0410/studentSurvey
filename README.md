@@ -1,3 +1,10 @@
+#####  Added by Abhishek ######
+This code file consists of both the front end an backend application.
+This code file is mostly my work, with exceptions at places where i have
+used the standard templates distributed online for free use.
+#####  #################   ######
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -207,7 +207,7 @@ class About extends Component
         console.log(this.state.StudentResponses);
         const options = { fillColor: '#00cc99', strokeColor: '#0000FF' };
         return (
-            <>
+            
             <div className='rowC'>
                 <Container fluid>
                     <Row>
@@ -246,7 +246,7 @@ class About extends Component
             }   
              </div>
   
-            </>
+            
             );
     }
 }

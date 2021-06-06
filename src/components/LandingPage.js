@@ -49,8 +49,8 @@
                     </div>
                   </nav>
                   <Route path="/" exact component={StudentSurvey} />
-                  <Route path="/about" exact component={About} />
-                  <Route path="/analysis" exact component={Analysis} />
+                  <Route path="/about" exact component={Analysis} />
+                  <Route path="/analysis" exact component={About} />
                   <Route path="/predict" exact component={Predict} />
                   <Route path="/disclaimer" exact component={Disclaimer} />
                  
